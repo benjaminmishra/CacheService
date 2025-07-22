@@ -1,0 +1,28 @@
+@hostname=localhost
+@port=44320
+
+### Health check
+GET http://{{hostname}}:{{port}}/health
+
+### Store a value
+POST http://{{hostname}}:{{port}}/api/v1/cache/foo
+Content-Type: text/plain; charset=utf-8
+
+bar
+
+### Retrieve the value
+GET http://{{hostname}}:{{port}}/api/v1/cache/foo
+
+### Update the value
+POST http://{{hostname}}:{{port}}/api/v1/cache/foo
+Content-Type: text/plain; charset=utf-8
+
+baz
+
+### Retrieve the updated value
+GET http://{{hostname}}:{{port}}/api/v1/cache/foo
+
+### Try to retrieve a non-existent key
+### Should return 404 Not Found
+### Should increment the cache miss count
+GET http://{{hostname}}:{{port}}/api/v1/cache/nonexistentkey

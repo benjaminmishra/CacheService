@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  title: Cache Service API
+  version: 1.0.0
+paths:
+  /api/v1/cache/{key}:
+    post:
+      summary: Set a value for a key
+      parameters:
+        - in: path
+          name: key
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: value stored
+        "507":
+          description: cache full
+    get:
+      summary: Get value by key
+      parameters:
+        - in: path
+          name: key
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: value found
+          content:
+            text/plain:
+              schema:
+                type: string
+        "404":
+          description: not found
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: OK
