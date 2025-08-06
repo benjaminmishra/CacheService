@@ -1,6 +1,6 @@
 # Cache Service
 
-As per the task this project implements a simple in-memory cache service with an HTTP interface. Items are stored for 30 minutes by default and the service is designed to handle a high volume of requests by sharding the cache and supporting concurrent access. The TTL can be modified through an env variable `CACHE_TTL`. There are some other env variable that can control various configuration to run the cache. There is a docker-compose.yaml file provided that demonstrates how this env variables can be passed. 
+This project implements a simple in-memory cache service with an HTTP interface. Items are stored for 30 minutes by default and the service is designed to handle a high volume of requests by sharding the cache and supporting concurrent access. The TTL can be modified through an env variable `CACHE_TTL`. There are some other env variable that can control various configuration to run the cache. There is a docker-compose.yaml file provided that demonstrates how this env variables can be passed. 
 
 ## Building
 
